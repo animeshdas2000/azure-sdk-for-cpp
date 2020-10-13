@@ -38,7 +38,7 @@ foreach ($branch in $branches)
   {
     LogDebug "Branch [ $branchName ] in repo [ $RepoName ] has no associated Pull Request. Deleting Branch"
     try{
-      Delete-References -RepoOwner $RepoOwner -RepoName $RepoName -Ref ($branch.Remove(0,5))
+      Delete-References -RepoOwner $RepoOwner -RepoName $RepoName -Ref ($branch.Remove(0,5)) -AuthToken $AuthToken
     }
     catch {
       LogError "Delete-References failed with exception:`n$_"
